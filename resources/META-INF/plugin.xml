@@ -1,0 +1,42 @@
+<idea-plugin>
+  <id>mark-review</id>
+  <name>marco</name>
+  <version>1.0</version>
+  <vendor email="17302010008@fudan.edu.cn" url="">fudan</vendor>
+
+  <description><![CDATA[
+      An Intellij Plugin for Mark-Review : A new interactive code review mode
+    ]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="211.4961.30"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <toolWindow id="MarkReview"
+                anchor="bottom"
+                factoryClass="com.fudan.intellij.plugin.marco.action.MarkReviewFactory"/>
+
+    <codeInsight.lineMarkerProvider
+            language=""
+            implementationClass="com.fudan.intellij.plugin.marco.action.LeftMarkIconProvider"/>
+
+  </extensions>
+
+  <actions>
+    <action id="AddMarkReview" class="com.fudan.intellij.plugin.marco.action.AddMarkReviewAction" text="添加MarkReview"
+            description="Add MarkReview">
+      <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
+    </action>
+  </actions>
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.java</depends>
+
+</idea-plugin>
